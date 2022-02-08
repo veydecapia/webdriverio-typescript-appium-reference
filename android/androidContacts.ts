@@ -18,19 +18,20 @@ describe('Android Contacts App Test', function () {
 		// Tap the floating action button
 		await tapElement(driver, AndroidContacts.locators.floatingActionBtn);
 
-		await tapElement(driver, `android=${AndroidContacts.locators.googleBtn}`);
+		//Cancel button
+		await tapElement(driver, AndroidContacts.locators.cancelBtn);
 
 		// Provide a First and Last name to the input fields
 		// then tap the save button
-		await setValueOfElement(driver, `android=${AndroidContacts.locators.nameTextbox}`, "Satoshi Nakamoto");
-		// await setValueOfElement(driver, `android=${AndroidContacts.locators.lastNameTextField}`, "Nakamoto");
+		await setValueOfElement(driver, `android=${AndroidContacts.locators.firstNameTextbox}`, "Satoshi");
+		await setValueOfElement(driver, `android=${AndroidContacts.locators.lastNameTextbox}`, "Nakamoto");
 		await tapElement(driver, AndroidContacts.locators.saveBtn);
 
 		// Tap the options menu button
-		await tapElement(driver, `android=${AndroidContacts.locators.editContactBtn}`);
+		await tapElement(driver, AndroidContacts.locators.moreOptionsBtn);
 
 		// Swipe to bottom part of the page
-		await driver.hideKeyboard();
+		// await driver.hideKeyboard();
 
 		// Tap the delete button
 		await tapElement(driver, `android=${AndroidContacts.locators.deleteBtn}`);
